@@ -5,18 +5,9 @@ import java.io.IOException;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-
-        File file = new File("employees.csv");
-
-        if (file.exists()) {
-            File stats = new File("stats.txt");
-            stats.createNewFile();
-
-//            FileWriter fileWriter = new FileWriter(stats);
-//            fileWriter.write("Średnia wypłata: 5000");
-//
-//            fileWriter.close();
-        }
-
+        // Employee employee = new Employee("Adam", "Janiczek", "87101404616", "IsdfadsfasT", 50000.00);
+        Employee[] employees = FileUtils.read("employees.csv");
+        EmployeeStats employeeStats = new EmployeeStats(employees);
+        System.out.println(employeeStats.toString());
     }
 }
