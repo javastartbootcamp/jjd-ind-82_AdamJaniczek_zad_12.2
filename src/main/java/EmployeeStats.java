@@ -6,35 +6,59 @@ public class EmployeeStats {
     }
 
     private int minSalary() {
-        int minSalary = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (i == 0) {
-                minSalary = employees[i].getSalary();
-            } else {
-                minSalary = Math.min(minSalary, employees[i].getSalary());
+        if (employees.length == 0) {
+            return 0;
+        }
+
+        int minSalary = employees[0].getSalary();
+
+        for (int i = 1; i < employees.length; i++) {
+            int currentSalary = employees[i].getSalary();
+            if (currentSalary < minSalary) {
+                minSalary = currentSalary;
             }
         }
+
         return minSalary;
     }
 
     private int maxSalary() {
-        int maxSalary = 0;
-        for (int i = 0; i < employees.length; i++) {
-            if (i == 0) {
-                maxSalary = employees[i].getSalary();
-            } else {
-                maxSalary = Math.max(maxSalary, employees[i].getSalary());
+        if (employees.length == 0) {
+            return 0;
+        }
+
+        int maxSalary = employees[0].getSalary();
+
+        for (int i = 1; i < employees.length; i++) {
+            int currentSalary = employees[i].getSalary();
+            if (currentSalary > maxSalary) {
+                maxSalary = currentSalary;
             }
         }
+
         return maxSalary;
     }
 
-    private double averageSalary() {
+    private int averageSalary() {
+        if (employees.length == 0) {
+            return 0;
+        }
+
         int totalSalary = 0;
+
         for (Employee employee : employees) {
             totalSalary += employee.getSalary();
         }
-        return totalSalary / employees.length;
+
+        return (int) ((double) totalSalary / employees.length);
+    }
+
+    public int countEmployees() {
+        int count = 0;
+        for (int i = 0; i < employees.length; i++) {
+            System.out.println(employees[i].getDepartment());
+        }
+        return 0;
     }
 
     @Override
