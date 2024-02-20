@@ -53,11 +53,11 @@ public class EmployeeStats {
         return (int) ((double) totalSalary / employees.length);
     }
 
-    private int countEmployeesInDepartment(Departments department) {
+    private int countEmployeesInDepartment(Department departments) {
         int count = 0;
 
         for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getDepartment() == department) {
+            if (employees[i] != null && employees[i].getDepartment() == departments) {
                 count++;
             }
         }
@@ -70,9 +70,9 @@ public class EmployeeStats {
         return "Średnia wypłata: " + averageSalary() + "\n" +
                 "Minimalna wypłata: " + minSalary() + "\n" +
                 "Maksymalna wypłata: " + maxSalary() + "\n" +
-                "Liczba pracowników IT: " + countEmployeesInDepartment(Departments.IT) + "\n" +
-                "Liczba pracowników Support: " + countEmployeesInDepartment(Departments.SUPPORT) + "\n" +
-                "Liczba pracowników Management: " + countEmployeesInDepartment(Departments.MANAGEMENT);
+                "Liczba pracowników IT: " + countEmployeesInDepartment(Department.IT) + "\n" +
+                "Liczba pracowników Support: " + countEmployeesInDepartment(Department.SUPPORT) + "\n" +
+                "Liczba pracowników Management: " + countEmployeesInDepartment(Department.MANAGEMENT);
 
     }
 }

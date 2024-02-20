@@ -2,7 +2,7 @@ public class Employee {
     private String name;
     private String lastName;
     private String pesel;
-    private Departments departments;
+    private Department departments;
     private int salary;
 
     public Employee(String name, String lastName, String pesel, String department, int salary) {
@@ -37,20 +37,20 @@ public class Employee {
         this.pesel = pesel;
     }
 
-    public Departments getDepartment() {
+    public Department getDepartment() {
         return departments;
     }
 
-    private Departments setDepartment(String department) {
+    private Department setDepartment(String department) {
         return switch (department.toUpperCase()) {
             case "IT":
-                yield Departments.IT;
+                yield Department.IT;
             case "SUPPORT":
-                yield Departments.SUPPORT;
+                yield Department.SUPPORT;
             case "MANAGEMENT":
-                yield Departments.MANAGEMENT;
+                yield Department.MANAGEMENT;
             default:
-                yield Departments.UNKNOWN;
+                yield Department.UNKNOWN;
         };
     }
 

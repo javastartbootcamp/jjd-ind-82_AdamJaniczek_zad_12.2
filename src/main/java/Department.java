@@ -1,8 +1,8 @@
-public enum Departments {
+public enum Department {
     IT("IT"), SUPPORT("SUPPORT"), MANAGEMENT("MANAGEMENT"), UNKNOWN("UNKNOWN");
     private String description;
 
-    Departments(String description) {
+    Department(String description) {
         this.description = description;
     }
 
