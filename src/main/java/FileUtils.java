@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class FileUtils {
 
-    static Employee[] read(String fileName) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File(fileName));
-        int lines = countLines(fileName);
+    static Employee[] read(File fileName) throws FileNotFoundException {
+        Scanner scanner = new Scanner(fileName);
+        int lines = countLines(String.valueOf(fileName));
         Employee[] result = new Employee[lines];
         for (int i = 0; i < lines; i++) {
             String line = scanner.nextLine();

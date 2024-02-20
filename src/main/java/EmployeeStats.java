@@ -53,18 +53,26 @@ public class EmployeeStats {
         return (int) ((double) totalSalary / employees.length);
     }
 
-    public int countEmployees() {
+    private int countEmployeesInDepartment(Departments department) {
         int count = 0;
+
         for (int i = 0; i < employees.length; i++) {
-            System.out.println(employees[i].getDepartment());
+            if (employees[i] != null && employees[i].getDepartment() == department) {
+                count++;
+            }
         }
-        return 0;
+
+        return count;
     }
 
     @Override
     public String toString() {
         return "Średnia wypłata: " + averageSalary() + "\n" +
                 "Minimalna wypłata: " + minSalary() + "\n" +
-                "Maksymalna wypłata: " + maxSalary() + "\n";
+                "Maksymalna wypłata: " + maxSalary() + "\n" +
+                "Liczba pracowników IT: " + countEmployeesInDepartment(Departments.IT) + "\n" +
+                "Liczba pracowników Support: " + countEmployeesInDepartment(Departments.SUPPORT) + "\n" +
+                "Liczba pracowników Management: " + countEmployeesInDepartment(Departments.MANAGEMENT);
+
     }
 }
